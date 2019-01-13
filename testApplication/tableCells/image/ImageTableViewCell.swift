@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageTableViewCell: UITableViewCell {
+class ImageTableViewCell: UITableViewCell, CellViewProtocol {
     @IBOutlet weak var imgView: UIImageView!
     
     func configure(img: UIImage) {

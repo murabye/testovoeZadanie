@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ButtonTableViewCell: UITableViewCell {
+class ButtonTableViewCell: UITableViewCell, CellViewProtocol {
     @IBOutlet weak var button: UIButton!
     var onTap: (() -> ())?
     

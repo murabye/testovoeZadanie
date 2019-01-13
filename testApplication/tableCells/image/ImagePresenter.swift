@@ -23,13 +23,10 @@ class ImagePresenter: CellPresenterProtocol {
         modelDelegate = from
     }
     
-    
     func present() {
         if cellDelegate is ImageTableViewCell {
             unowned let imageDelegate = cellDelegate as! ImageTableViewCell
-            NetworkManager.shared.loadImage(from: modelDelegate.value) { image in
-                imageDelegate.configure(img: image)
-            }
+            imageDelegate.configure(img: modelDelegate.value)
         }
     }
 }

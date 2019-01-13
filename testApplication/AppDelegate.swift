@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UIButton.appearance().tintColor = UIColor.init(displayP3Red: 112/255, green: 217/255, blue: 101/255, alpha: 1)
+        
         return true
     }
 

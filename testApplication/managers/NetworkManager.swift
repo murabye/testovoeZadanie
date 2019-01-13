@@ -32,7 +32,7 @@ class NetworkManager {
         }.resume()
     }
     
-    func getProducts(onSuccess: @escaping (AllProducts) -> Void, onExeption: @escaping (Error) -> Void) {
+    func getProducts(onSuccess: @escaping ([Product]) -> Void, onExeption: @escaping (Error) -> Void) {
         baseGetRequest(address: .getProductList) { (data, response, requestError) in
             guard let data = data else { return }
             
@@ -40,7 +40,7 @@ class NetworkManager {
                 let dec = JSONDecoder()
                 dec.keyDecodingStrategy = .convertFromSnakeCase
                 
-                let products = try dec.decode(AllProducts.self, from: data)
+                let products = try dec.decode([Product].self, from: data)
                 
                 DispatchQueue.main.async {
                     onSuccess(products)

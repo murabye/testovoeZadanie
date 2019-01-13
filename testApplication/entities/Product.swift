@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Product: Decodable {
+struct Product: Decodable {
     let id: Int64
     var name: String
     var availableStock: Int
@@ -17,6 +17,17 @@ class Product: Decodable {
     var price: Int
     var city: String
     var description: String
-    var latitude: Double
-    var longitude: Double
+    var latitude: String
+    var longitude: String
+    
+    var latitudeConv: Double? {
+        get {
+            return latitude.toDouble()
+        }
+    }
+    var longitudeConv: Double?{
+        get {
+            return longitude.toDouble()
+        }
+    }
 }

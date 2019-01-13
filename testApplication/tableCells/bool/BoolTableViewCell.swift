@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BoolTableViewCell: UITableViewCell {
+class BoolTableViewCell: UITableViewCell, CellViewProtocol {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var stateSwitch: UISwitch!
     

@@ -11,9 +11,9 @@ import UIKit
 class ImageModel: CellModelProtocol {
     var presenter: CellPresenterProtocol!
     
-    let value: String
+    let value: UIImage
         
-    init(_ newValue: String) {
+    init(_ newValue: UIImage) {
         value = newValue
         presenter = nil
         presenter = ImagePresenter(from: self)

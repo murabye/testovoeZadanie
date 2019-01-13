@@ -11,19 +11,18 @@ import Foundation
 class MainModel: MainModelProtocol {
     weak var presenterDelegate: MainPresenterProtocol?
     
-    private var products: AllProducts?
+    private var products: [Product] = []
     
     init() {
         presenterDelegate = nil
     }
     
-    //MARK: data work
-    func updateData(_ newProducts: AllProducts) {
+    func updateData(_ newProducts: [Product]) {
         products = newProducts
-        presenterDelegate?.updateProductList(newProducts.productCollection)
+        presenterDelegate?.updateProductList(newProducts)
     }
     
     func getData() -> [Product] {
-        return products?.productCollection ?? []
+        return products
     }
 }

@@ -10,16 +10,26 @@ import UIKit
 
 class MainView: UIViewController, MainViewProtocol {
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var presenter: MainPresenter!
     
     var data: [Section] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = MainPresenter()
+        presenter.viewDelegate = self
+        table.alpha = 0
     }
     
     func updateData(models: [Section]) {
+        activityIndicator.stopAnimating()
         data = models
         table.reloadData()
+        UIView.animate(withDuration: 0.5) { [unowned self] () in
+            self.table.alpha = 1
+        }
     }
     
     func handleError(_ error: Error) {
@@ -34,6 +44,10 @@ class MainView: UIViewController, MainViewProtocol {
                 print("destructive")
             }}))
         self.present(alert, animated: true, completion: nil)
+    }
+  
+    func present(viewController: UIViewController) {
+        self.navigationController?.show(viewController, sender: nil)
     }
 }
 

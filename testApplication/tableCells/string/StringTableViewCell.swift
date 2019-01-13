@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StringTableViewCell: UITableViewCell {
+class StringTableViewCell: UITableViewCell, CellViewProtocol {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     

@@ -20,5 +20,6 @@ protocol MainModelProtocol: class {
 
 protocol MainViewProtocol: class {
     func handleError(_: Error)
-    func updateData(models: [Section]) 
+    func updateData(models: [Section])
+    func present(viewController: UIViewController)
 }
